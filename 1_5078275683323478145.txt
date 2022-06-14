@@ -1,0 +1,27 @@
+
+
+library(ggplot2)
+library(geobr)
+library(ggspatial)
+
+########################################
+## Acessando os dados do IBGE        ###
+########################################
+
+sp <- read_state(code_state = "SP",year = 2010)
+br <- read_state(code_state = "all",year = 2010)
+
+
+########################################
+## Plotando o mapa                   ###
+########################################
+
+ggplot(br) +
+ aes(group = code_state) +
+ geom_sf(size = 0.1,fill="#FFF7C2") +
+  geom_sf(aes(group=code_state),data=sp,fill="#EA6E16",col="#EA6E16")+
+ labs(x = "Longitude", y = "Latitude", title = "Mapa do Brasil") +
+ annotation_north_arrow(style = north_arrow_fancy_orienteering)+ 
+  annotation_scale(location="br",height = unit(0.15,"cm"))+
+ theme_bw()
+
