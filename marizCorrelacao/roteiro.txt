@@ -1,0 +1,11 @@
+
+
+
+ggcorrplot(cor.data, hc.order = TRUE,
+  type = "lower",
+  legend.title = "Coeficiente de \n Correlação",
+  lab = TRUE,
+  lab_size = 3, method="circle",
+  colors = c("firebrick", "white", "dodgerblue4"),
+  title="Correlação entre Variáveis Atmosféricas ",
+  ggtheme=theme_bw)
